@@ -54,34 +54,82 @@ export default function HomePage() {
   const [stats, setStats] = useState<any>(null);
   const [demoOpen, setDemoOpen] = useState(false);
 
-  const heroWords = [t("landing.heroWords.ticket"), t("landing.heroWords.query"), t("landing.heroWords.complaint"), t("landing.heroWords.request")];
+  const heroWords = ["orders", "inquiries", "returns", "complaints"];
 
   const features = [
-    { num: "01", title: t("landing.features.intake.title"), desc: t("landing.features.intake.desc"), color: "blue", gradient: "from-blue-500 to-blue-600", bg: "bg-blue-50", border: "border-blue-100", text: "text-blue-600", iconBg: "bg-blue-500", bullets: (t("landing.features.intake.bullets") || "").split(",").map((s: string) => s.trim()) || ["Auto-classification", "Smart routing", "Instant response"], feed: [{ icon: "✓", text: "Classified", detail: "Billing inquiry" }, { icon: "✓", text: "Routed", detail: "Urgent issue → Tier 2" }, { icon: "✓", text: "Resolved", detail: "Password reset" }] },
-    { num: "02", title: t("landing.features.inbox.title"), desc: t("landing.features.inbox.desc"), color: "emerald", gradient: "from-emerald-500 to-emerald-600", bg: "bg-emerald-50", border: "border-emerald-100", text: "text-emerald-600", iconBg: "bg-emerald-500", bullets: (t("landing.features.inbox.bullets") || "").split(",").map((s: string) => s.trim()) || ["6 channels unified", "Real-time sync", "Full context"], feed: [{ icon: "✓", text: "WhatsApp", detail: "Order status inquiry" }, { icon: "✓", text: "Email", detail: "Refund request received" }, { icon: "✓", text: "Web Chat", detail: "New visitor from Lagos" }] },
-    { num: "03", title: t("landing.features.sentiment.title"), desc: t("landing.features.sentiment.desc"), color: "purple", gradient: "from-purple-500 to-purple-600", bg: "bg-purple-50", border: "border-purple-100", text: "text-purple-600", iconBg: "bg-purple-500", bullets: (t("landing.features.sentiment.bullets") || "").split(",").map((s: string) => s.trim()) || ["Real-time scoring", "Trend alerts", "Churn prediction"], feed: [{ icon: "✓", text: "Detected", detail: "Frustrated tone — escalated" }, { icon: "✓", text: "Scored", detail: "Positive (0.92) — closed" }, { icon: "!", text: "Alert", detail: "Negative trend on WhatsApp" }] },
-    { num: "04", title: t("landing.features.sla.title"), desc: t("landing.features.sla.desc"), color: "amber", gradient: "from-amber-500 to-amber-600", bg: "bg-amber-50", border: "border-amber-100", text: "text-amber-600", iconBg: "bg-amber-500", bullets: (t("landing.features.sla.bullets") || "").split(",").map((s: string) => s.trim()) || ["Auto-escalation", "SLA tracking", "Compliance reporting"], feed: [{ icon: "✓", text: "Enforced", detail: "SLA 2h met for SSV-1234" }, { icon: "✕", text: "Breached", detail: "SSV-1230 exceeded 4h" }, { icon: "✓", text: "Escalated", detail: "SSV-1228 → Manager" }] },
-    { num: "05", title: t("landing.features.knowledge.title"), desc: t("landing.features.knowledge.desc"), color: "cyan", gradient: "from-cyan-500 to-cyan-600", bg: "bg-cyan-50", border: "border-cyan-100", text: "text-cyan-600", iconBg: "bg-cyan-500", bullets: (t("landing.features.knowledge.bullets") || "").split(",").map((s: string) => s.trim()) || ["Auto-ingestion", "Semantic search", "AI-powered answers"], feed: [{ icon: "✓", text: "Indexed", detail: "12 new articles processed" }, { icon: "✓", text: "Matched", detail: "Q: reset password → A: #42" }, { icon: "✓", text: "Auto-resolved", detail: "Shipping policy question" }] },
-    { num: "06", title: t("landing.features.analytics.title"), desc: t("landing.features.analytics.desc"), color: "rose", gradient: "from-rose-500 to-rose-600", bg: "bg-rose-50", border: "border-rose-100", text: "text-rose-600", iconBg: "bg-rose-500", bullets: (t("landing.features.analytics.bullets") || "").split(",").map((s: string) => s.trim()) || ["Live dashboards", "Export reports", "Custom metrics"], feed: [{ icon: "✓", text: "Updated", detail: "Resolution rate: 87%" }, { icon: "!", text: "Alert", detail: "CSAT dipped below 4.0" }, { icon: "✓", text: "Report", detail: "Weekly summary generated" }] },
+    {
+      num: "01", title: "Smart Order Intake", desc: "Automatically capture and classify orders from every channel — WhatsApp, email, web chat, and social media — with AI-powered routing.", color: "blue", gradient: "from-blue-500 to-blue-600", bg: "bg-blue-50", border: "border-blue-100", text: "text-blue-600", iconBg: "bg-blue-500",
+      bullets: ["Auto-classification", "Smart routing", "Instant response"],
+      feed: [
+        { icon: "✓", text: "Classified", detail: "Payment dispute — billing" },
+        { icon: "✓", text: "Routed", detail: "Urgent return → fulfillment team" },
+        { icon: "✓", text: "Resolved", detail: "Order status update sent" }
+      ]
+    },
+    {
+      num: "02", title: "Omnichannel Inbox", desc: "Unify WhatsApp, email, SMS, web chat, Instagram, and Messenger into a single dashboard for seamless shopping support.", color: "emerald", gradient: "from-emerald-500 to-emerald-600", bg: "bg-emerald-50", border: "border-emerald-100", text: "text-emerald-600", iconBg: "bg-emerald-500",
+      bullets: ["6 channels unified", "Real-time sync", "Full context"],
+      feed: [
+        { icon: "✓", text: "WhatsApp", detail: "Where is my order?" },
+        { icon: "✓", text: "Email", detail: "Return request received" },
+        { icon: "✓", text: "Web Chat", detail: "New shopper from Lagos" }
+      ]
+    },
+    {
+      num: "03", title: "Sentiment & Satisfaction", desc: "Detect buyer frustration in real-time, track satisfaction trends, and predict churn before it happens.", color: "purple", gradient: "from-purple-500 to-purple-600", bg: "bg-purple-50", border: "border-purple-100", text: "text-purple-600", iconBg: "bg-purple-500",
+      bullets: ["Real-time scoring", "Trend alerts", "Churn prediction"],
+      feed: [
+        { icon: "✓", text: "Detected", detail: "Frustrated tone — escalated" },
+        { icon: "✓", text: "Scored", detail: "Positive (0.92) — closed" },
+        { icon: "!", text: "Alert", detail: "Negative trend on WhatsApp" }
+      ]
+    },
+    {
+      num: "04", title: "SLA & Escalation", desc: "Enforce response-time SLAs, auto-escalate overdue cases, and ensure every shopper gets timely shopping support.", color: "amber", gradient: "from-amber-500 to-amber-600", bg: "bg-amber-50", border: "border-amber-100", text: "text-amber-600", iconBg: "bg-amber-500",
+      bullets: ["Auto-escalation", "SLA tracking", "Compliance reporting"],
+      feed: [
+        { icon: "✓", text: "Enforced", detail: "SLA 2h met for ShopCRM-1234" },
+        { icon: "✕", text: "Breached", detail: "ShopCRM-1230 exceeded 4h" },
+        { icon: "✓", text: "Escalated", detail: "ShopCRM-1228 → Manager" }
+      ]
+    },
+    {
+      num: "05", title: "Knowledge & Product Info", desc: "Auto-ingest product catalogs, FAQs, and shipping policies — then serve AI-powered answers to shoppers instantly.", color: "cyan", gradient: "from-cyan-500 to-cyan-600", bg: "bg-cyan-50", border: "border-cyan-100", text: "text-cyan-600", iconBg: "bg-cyan-500",
+      bullets: ["Auto-ingestion", "Semantic search", "AI-powered answers"],
+      feed: [
+        { icon: "✓", text: "Indexed", detail: "12 new articles processed" },
+        { icon: "✓", text: "Matched", detail: "Q: return policy → A: #42" },
+        { icon: "✓", text: "Auto-resolved", detail: "Shipping FAQ question" }
+      ]
+    },
+    {
+      num: "06", title: "E-Commerce Analytics", desc: "Live dashboards for order resolution rate, shopper satisfaction, average response time, and custom e-commerce metrics.", color: "rose", gradient: "from-rose-500 to-rose-600", bg: "bg-rose-50", border: "border-rose-100", text: "text-rose-600", iconBg: "bg-rose-500",
+      bullets: ["Live dashboards", "Export reports", "Custom metrics"],
+      feed: [
+        { icon: "✓", text: "Updated", detail: "Resolution rate: 87%" },
+        { icon: "!", text: "Alert", detail: "CSAT dipped below 4.0" },
+        { icon: "✓", text: "Report", detail: "Weekly summary generated" }
+      ]
+    },
   ];
 
   const agents = [
-    { name: "Intake", desc: t("landing.agents.intake"), color: "from-blue-500 to-blue-600", gradient: "#3b82f6" },
-    { name: "Knowledge", desc: t("landing.agents.knowledge"), color: "from-emerald-500 to-emerald-600", gradient: "#10b981" },
-    { name: "Resolution", desc: t("landing.agents.resolution"), color: "from-purple-500 to-purple-600", gradient: "#8b5cf6" },
-    { name: "QA", desc: t("landing.agents.qa"), color: "from-amber-500 to-amber-600", gradient: "#f59e0b" },
-    { name: "Escalation", desc: t("landing.agents.escalation"), color: "from-red-500 to-red-600", gradient: "#ef4444" },
-    { name: "Sentiment", desc: t("landing.agents.sentiment"), color: "from-cyan-500 to-cyan-600", gradient: "#06b6d4" },
-    { name: "Analytics", desc: t("landing.agents.analytics"), color: "from-rose-500 to-rose-600", gradient: "#f43f5e" },
+    { name: "Order Intake", desc: "Captures orders from WhatsApp, email, web, and social — auto-classifies and routes to the right team.", color: "from-blue-500 to-blue-600", gradient: "#3b82f6" },
+    { name: "Knowledge", desc: "Indexes your product catalog and policies. Answers shopper questions instantly with AI.", color: "from-emerald-500 to-emerald-600", gradient: "#10b981" },
+    { name: "Resolution", desc: "Handles refunds, exchanges, and delivery issues end-to-end with intelligent workflows.", color: "from-purple-500 to-purple-600", gradient: "#8b5cf6" },
+    { name: "QA", desc: "Reviews every interaction for quality, compliance, and shopper satisfaction.", color: "from-amber-500 to-amber-600", gradient: "#f59e0b" },
+    { name: "Escalation", desc: "Detects SLA breaches and complex issues — automatically escalates to human agents.", color: "from-red-500 to-red-600", gradient: "#ef4444" },
+    { name: "Sentiment", desc: "Monitors buyer mood in real-time. Flags frustrated shoppers before they churn.", color: "from-cyan-500 to-cyan-600", gradient: "#06b6d4" },
+    { name: "Analytics", desc: "Tracks order volume, response times, CSAT, and conversion metrics.", color: "from-rose-500 to-rose-600", gradient: "#f43f5e" },
   ];
 
   const channels = [
-    { name: "WhatsApp", desc: t("landing.channels.whatsapp"), color: "from-[#25D366] to-[#128C7E]", icon: "M", stats: "whatsapp" },
-    { name: "Email", desc: t("landing.channels.email"), color: "from-[#FF6600] to-[#E55B00]", icon: "@", stats: "email" },
-    { name: "SMS", desc: t("landing.channels.sms"), color: "from-[#2196F3] to-[#1976D2]", icon: "~", stats: "sms" },
-    { name: "Web Chat", desc: t("landing.channels.web"), color: "from-[#8B5CF6] to-[#7C3AED]", icon: "W", stats: "web_chat" },
-    { name: "Messenger", desc: t("landing.channels.messenger"), color: "from-[#1877F2] to-[#0D65D9]", icon: "M", stats: "messenger" },
-    { name: "Instagram", desc: t("landing.channels.instagram"), color: "from-[#833AB4] to-[#FD1D1D]", icon: "I", stats: "instagram" },
+    { name: "WhatsApp", desc: "68% of orders come via WhatsApp. Respond instantly with AI-powered shopping support.", color: "from-[#25D366] to-[#128C7E]", icon: "M", stats: "whatsapp" },
+    { name: "Email", desc: "Handle order confirmations, return requests, and escalations from a unified inbox.", color: "from-[#FF6600] to-[#E55B00]", icon: "@", stats: "email" },
+    { name: "SMS", desc: "Send delivery updates, OTP confirmations, and proactive order notifications.", color: "from-[#2196F3] to-[#1976D2]", icon: "~", stats: "sms" },
+    { name: "Web Chat", desc: "Convert website visitors into buyers with real-time shopping support.", color: "from-[#8B5CF6] to-[#7C3AED]", icon: "W", stats: "web_chat" },
+    { name: "Messenger", desc: "Manage orders and inquiries from Facebook Messenger in one place.", color: "from-[#1877F2] to-[#0D65D9]", icon: "M", stats: "messenger" },
+    { name: "Instagram", desc: "Turn DMs into orders. Respond to product inquiries and post-purchase questions.", color: "from-[#833AB4] to-[#FD1D1D]", icon: "I", stats: "instagram" },
   ];
 
   useEffect(() => {
@@ -115,25 +163,25 @@ export default function HomePage() {
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 mb-8">
                 <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-[13px] font-semibold text-blue-200 uppercase tracking-wider">{t("hero.badge")}</span>
+                <span className="text-[13px] font-semibold text-blue-200 uppercase tracking-wider">Live Now</span>
               </div>
               <h1 className="text-[44px] sm:text-[58px] lg:text-[72px] font-extrabold leading-[0.95] tracking-tight text-white mb-6">
-                {t("hero.title1")}{" "}
+                Automate{" "}
                 <span className="relative inline-block">
                   <span className="relative z-10 text-blue-300 italic">{heroWords[wordIndex]}</span>
                   <span className="absolute bottom-1 left-0 w-full h-3 bg-blue-400/20 rounded-sm" />
                 </span>
-                <br />{t("hero.title2")}
+                <br />with ShopCRM
               </h1>
               <p className="text-[17px] text-blue-100/70 max-w-lg mb-10 leading-relaxed">
-                {t("hero.desc")}
+                AI-powered shopping support for e-commerce brands. Handle orders, returns, and delivery issues across every channel — instantly.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/support" className="px-8 py-4 bg-white text-gray-900 rounded-2xl text-[15px] font-semibold hover:bg-gray-50 transition-all text-center shadow-xl hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98]">
-                  {t("hero.cta")}
+                  Start Selling Smarter
                 </Link>
                 <button onClick={() => setDemoOpen(true)} className="px-8 py-4 bg-transparent border-2 border-blue-300/30 text-blue-200 rounded-2xl text-[15px] font-semibold hover:bg-white/5 transition-all text-center hover:scale-[1.02] active:scale-[0.98]">
-                  {t("hero.demo")}
+                  Book a Demo
                 </button>
               </div>
             </div>
@@ -156,7 +204,7 @@ export default function HomePage() {
                     </div>
                   ))}
                 </div>
-                {/* Recent tickets */}
+                {/* Recent cases */}
                 <div className="space-y-2">
                   {recentTickets.slice(0, 3).map((rt: any, i: number) => (
                     <div key={i} className="flex items-center justify-between p-3 rounded-xl bg-white/[0.04] border border-white/[0.05]">
@@ -169,7 +217,7 @@ export default function HomePage() {
                         <span className="text-xs font-mono text-blue-300/80">{rt.ticket_number}</span>
                         <span className="text-xs text-gray-300 truncate">{rt.subject}</span>
                       </div>
-                      <span className="text-[10px] text-gray-500 shrink-0 ml-2">{rt.customer_name || "Customer"}</span>
+                      <span className="text-[10px] text-gray-500 shrink-0 ml-2">{rt.customer_name || "Buyer"}</span>
                     </div>
                   ))}
                   {recentTickets.length === 0 && (
@@ -198,10 +246,10 @@ export default function HomePage() {
       <RevealSection className="relative -mt-12 z-10 max-w-[1200px] mx-auto px-6">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { label: t("stats.autoResolution"), value: ticket.autoResolutionRate || 67, suffix: "%", gradient: "from-blue-500 to-blue-600", icon: "⚡", iconBg: "bg-blue-500" },
-            { label: t("stats.avgResponse"), value: 42, suffix: "s", gradient: "from-emerald-500 to-emerald-600", icon: "⏱", iconBg: "bg-emerald-500" },
-            { label: t("stats.uptime"), value: 99.99, suffix: "%", gradient: "from-purple-500 to-purple-600", icon: "🛡", iconBg: "bg-purple-500" },
-            { label: t("stats.customers"), value: customer.total || 16, suffix: "+", gradient: "from-amber-500 to-amber-600", icon: "👥", iconBg: "bg-amber-500" },
+            { label: "Auto-Resolution Rate", value: ticket.autoResolutionRate || 67, suffix: "%", gradient: "from-blue-500 to-blue-600", icon: "⚡", iconBg: "bg-blue-500" },
+            { label: "Avg Response Time", value: 42, suffix: "s", gradient: "from-emerald-500 to-emerald-600", icon: "⏱", iconBg: "bg-emerald-500" },
+            { label: "Uptime", value: 99.99, suffix: "%", gradient: "from-purple-500 to-purple-600", icon: "🛡", iconBg: "bg-purple-500" },
+            { label: "Active Shoppers", value: customer.total || 16, suffix: "+", gradient: "from-amber-500 to-amber-600", icon: "👥", iconBg: "bg-amber-500" },
           ].map((stat, i) => (
             <RevealSection key={stat.label} delay={i * 100}>
               <div className="bg-white rounded-2xl shadow-xl shadow-gray-200/50 border border-gray-100 p-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
@@ -225,7 +273,7 @@ export default function HomePage() {
         <RevealSection>
           <div className="max-w-[1200px] mx-auto px-6 relative z-10">
             <div className="text-center mb-14">
-              <p className="text-[11px] font-bold text-gray-400 uppercase tracking-[0.25em] mb-4">{t("trusted.title")}</p>
+              <p className="text-[11px] font-bold text-gray-400 uppercase tracking-[0.25em] mb-4">Trusted by Leading E-Commerce Brands</p>
               <div className="flex items-center justify-center gap-4">
                 <div className="h-px w-16 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
                 <div className="h-1 w-1 rounded-full bg-blue-500 shadow-sm shadow-blue-500/50" />
@@ -234,18 +282,18 @@ export default function HomePage() {
             </div>
             <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-[1px] rounded-2xl overflow-hidden shadow-lg shadow-gray-200/40 border border-white/60 backdrop-blur-sm">
               {[
-                { name: "Paystack", accent: "hover:shadow-blue-500/5" },
-                { name: "Kuda", accent: "hover:shadow-blue-500/5" },
-                { name: "PiggyVest", accent: "hover:shadow-green-500/5" },
-                { name: "Chipper", accent: "hover:shadow-purple-500/5" },
-                { name: "Moniepoint", accent: "hover:shadow-blue-500/5" },
-                { name: "FairMoney", accent: "hover:shadow-amber-500/5" },
-                { name: "Glovo", accent: "hover:shadow-green-500/5" },
-                { name: "Wema Bank", accent: "hover:shadow-red-500/5" },
-                { name: "Arm", accent: "hover:shadow-indigo-500/5" },
-                { name: "Tolaram", accent: "hover:shadow-orange-500/5" },
+                { name: "Jumia", accent: "hover:shadow-blue-500/5" },
+                { name: "Konga", accent: "hover:shadow-orange-500/5" },
+                { name: "PayPorte", accent: "hover:shadow-green-500/5" },
+                { name: "Slot.ng", accent: "hover:shadow-purple-500/5" },
+                { name: "BuyAm", accent: "hover:shadow-blue-500/5" },
+                { name: "Glovo", accent: "hover:shadow-amber-500/5" },
                 { name: "Chowdeck", accent: "hover:shadow-green-500/5" },
-                { name: "Yellow Card", accent: "hover:shadow-yellow-500/5" },
+                { name: "Pricepally", accent: "hover:shadow-red-500/5" },
+                { name: "Farmcrowdy", accent: "hover:shadow-indigo-500/5" },
+                { name: "Terra Marketplace", accent: "hover:shadow-orange-500/5" },
+                { name: "Carbon", accent: "hover:shadow-green-500/5" },
+                { name: "54gene", accent: "hover:shadow-yellow-500/5" },
               ].map((company) => (
                 <div key={company.name} className={`flex items-center justify-center h-[78px] bg-white/70 backdrop-blur-sm hover:bg-white/90 transition-all duration-300 group cursor-default ${company.accent} hover:shadow-lg`}>
                   <span className="text-[13px] font-semibold text-gray-400/80 tracking-wide group-hover:text-gray-500 group-hover:tracking-wider transition-all duration-300">{company.name}</span>
@@ -254,7 +302,7 @@ export default function HomePage() {
             </div>
             <div className="flex items-center justify-center mt-10">
               <Link href="/about" className="inline-flex items-center gap-2 text-[12px] font-medium text-gray-400 hover:text-gray-600 transition-colors duration-300 group px-5 py-2.5 rounded-full border border-gray-200/60 hover:border-gray-300/60 hover:bg-white/50 backdrop-blur-sm">
-                {t("trusted.readAll")}
+                See all customers
                 <svg className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </Link>
             </div>
@@ -265,17 +313,17 @@ export default function HomePage() {
       {/* ═══════ THE PROBLEM ═══════ */}
       <RevealSection className="py-24 section-mesh">
         <div className="max-w-[1200px] mx-auto px-6 text-center">
-          <p className="text-sm font-bold text-blue-600 uppercase tracking-[0.2em] mb-4">{t("problem.label")}</p>
+          <p className="text-sm font-bold text-blue-600 uppercase tracking-[0.2em] mb-4">The Challenge</p>
           <h2 className="text-[34px] sm:text-[46px] font-extrabold tracking-tight mb-4 leading-[1.05]">
-            {t("problem.title")}
+            E-commerce brands lose 30% of shoppers to slow shopping support
           </h2>
-          <p className="text-gray-500 text-lg max-w-xl mx-auto mb-16">{t("problem.desc")}</p>
+          <p className="text-gray-500 text-lg max-w-xl mx-auto mb-16">Manual order processing, missed returns, and delayed responses are killing your conversion rates.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: "!", title: t("landing.problems.triage.title"), desc: t("landing.problems.triage.desc"), gradient: "from-blue-500 to-blue-600", topClass: "card-top-blue" },
-              { icon: "~", title: t("landing.problems.escalation.title"), desc: t("landing.problems.escalation.desc"), gradient: "from-rose-500 to-rose-600", topClass: "card-top-rose" },
-              { icon: "●", title: t("landing.problems.resolution.title"), desc: t("landing.problems.resolution.desc"), gradient: "from-amber-500 to-amber-600", topClass: "card-top-amber" },
-              { icon: "↻", title: t("landing.problems.fallback.title"), desc: t("landing.problems.fallback.desc"), gradient: "from-gray-400 to-gray-500", topClass: "" },
+              { icon: "!", title: "Slow Order Triage", desc: "Orders pile up without classification. Urgent returns go unnoticed while agents handle routine inquiries.", gradient: "from-blue-500 to-blue-600", topClass: "card-top-blue" },
+              { icon: "~", title: "Manual Escalations", desc: "Complex delivery issues sit in queues. No automatic routing to specialized teams.", gradient: "from-rose-500 to-rose-600", topClass: "card-top-rose" },
+              { icon: "●", title: "Delayed Resolutions", desc: "Shoppers wait hours for refund confirmations. Average handle time skyrockets.", gradient: "from-amber-500 to-amber-600", topClass: "card-top-amber" },
+              { icon: "↻", title: "Lost Sales", desc: "Abandoned carts due to unanswered pre-sale questions. Revenue slips through the cracks.", gradient: "from-gray-400 to-gray-500", topClass: "" },
             ].map((card, i) => (
               <RevealSection key={card.title} delay={i * 100}>
                 <div className={`text-left p-8 rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-xl transition-all duration-300 group bg-white ${card.topClass}`}>
@@ -295,12 +343,12 @@ export default function HomePage() {
       <section className="relative py-24 overflow-hidden" style={{ background: "linear-gradient(135deg, #0b1a2e 0%, #0f2340 40%, #142d50 70%, #1a365d 100%)" }}>
         <div className="absolute top-[-30%] right-[-10%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px]" />
         <div className="max-w-[1200px] mx-auto px-6 text-center relative">
-          <p className="text-sm font-bold text-blue-300 uppercase tracking-[0.2em] mb-4">{t("solution.label")}</p>
+          <p className="text-sm font-bold text-blue-300 uppercase tracking-[0.2em] mb-4">The Solution</p>
           <h2 className="text-[34px] sm:text-[46px] font-extrabold tracking-tight text-white mb-6 leading-[1.05]">
-            {t("solution.title")}
+            ShopCRM: AI-Powered Shopping Support
           </h2>
           <p className="text-blue-100/70 text-lg max-w-2xl mx-auto leading-relaxed">
-            {t("solution.desc")}
+            One platform to automate order intake, resolve returns, track deliveries, and delight every buyer — across every channel.
           </p>
         </div>
       </section>
@@ -309,11 +357,11 @@ export default function HomePage() {
       <section id="features" className="relative py-20">
         <div className="max-w-[1200px] mx-auto px-6 relative">
           <RevealSection className="text-center mb-16">
-            <p className="text-[11px] font-bold text-blue-500 uppercase tracking-[0.25em] mb-4">{t("features.label")}</p>
+            <p className="text-[11px] font-bold text-blue-500 uppercase tracking-[0.25em] mb-4">Features</p>
             <h2 className="text-[34px] sm:text-[46px] font-extrabold tracking-tight leading-[1.05]">
-              {t("features.title")}
+              Built for E-Commerce
             </h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto mt-4">{t("features.subtitle")}</p>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto mt-4">Everything you need to deliver world-class shopping support — from order intake to post-delivery satisfaction.</p>
           </RevealSection>
 
           <div className="space-y-8">
@@ -382,11 +430,11 @@ export default function HomePage() {
       <section id="channels" className="py-24 border-t border-gray-100/80 section-mesh-blue">
         <div className="max-w-[1200px] mx-auto px-6">
           <RevealSection className="text-center mb-16">
-            <p className="text-sm font-bold text-blue-600 uppercase tracking-[0.2em] mb-4">{t("channels.label")}</p>
+            <p className="text-sm font-bold text-blue-600 uppercase tracking-[0.2em] mb-4">Channels</p>
             <h2 className="text-[34px] sm:text-[46px] font-extrabold tracking-tight leading-[1.05]">
-              {t("channels.title")}
+              Every Channel, One Inbox
             </h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto mt-4">{t("channels.desc")}</p>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto mt-4">Meet your shoppers where they are — WhatsApp, email, Instagram, and more — all unified in a single shopping support dashboard.</p>
           </RevealSection>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {channels.map((ch, i) => (
@@ -400,7 +448,7 @@ export default function HomePage() {
                       </div>
                       <div className="flex items-center gap-2">
                         <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                        <span className="text-xs text-gray-400 font-medium">{channelCounts[ch.stats] || 0} tickets</span>
+                        <span className="text-xs text-gray-400 font-medium">{channelCounts[ch.stats] || 0} orders</span>
                       </div>
                     </div>
                     <h3 className="text-lg font-bold mb-1">{ch.name}</h3>
@@ -417,11 +465,11 @@ export default function HomePage() {
       <section id="agents" className="py-24 border-t border-gray-100/80 section-mesh-purple">
         <div className="max-w-[1200px] mx-auto px-6">
           <RevealSection className="text-center mb-16">
-            <p className="text-sm font-bold text-blue-600 uppercase tracking-[0.2em] mb-4">{t("agents.label")}</p>
+            <p className="text-sm font-bold text-blue-600 uppercase tracking-[0.2em] mb-4">AI Agents</p>
             <h2 className="text-[34px] sm:text-[46px] font-extrabold tracking-tight leading-[1.05]">
-              {t("agents.title")}
+              Specialized AI for E-Commerce
             </h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto mt-4">{t("agents.desc")}</p>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto mt-4">Purpose-built agents that handle order intake, returns processing, product questions, and delivery tracking — so your team focuses on complex cases.</p>
           </RevealSection>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {agents.map((agent, i) => (
@@ -446,17 +494,17 @@ export default function HomePage() {
       <section className="py-24 border-t border-gray-100/80 section-mesh-emerald">
         <div className="max-w-[1200px] mx-auto px-6">
           <RevealSection className="text-center mb-16">
-            <p className="text-sm font-bold text-blue-600 uppercase tracking-[0.2em] mb-4">{t("howItWorks.label")}</p>
+            <p className="text-sm font-bold text-blue-600 uppercase tracking-[0.2em] mb-4">How It Works</p>
             <h2 className="text-[34px] sm:text-[46px] font-extrabold tracking-tight leading-[1.05]">
-              {t("howItWorks.title")}
+              Go Live in 4 Steps
             </h2>
           </RevealSection>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { num: "01", icon: "↓", title: t("landing.steps.ingest.title"), desc: t("landing.steps.ingest.desc"), gradient: "from-blue-500 to-blue-600" },
-              { num: "02", icon: "⚡", title: t("landing.steps.classify.title"), desc: t("landing.steps.classify.desc"), gradient: "from-emerald-500 to-emerald-600" },
-              { num: "03", icon: "↗", title: t("landing.steps.resolve.title"), desc: t("landing.steps.resolve.desc"), gradient: "from-purple-500 to-purple-600" },
-              { num: "04", icon: "✓", title: t("landing.steps.escalate.title"), desc: t("landing.steps.escalate.desc"), gradient: "from-amber-500 to-amber-600" },
+              { num: "01", icon: "↓", title: "Connect Channels", desc: "Integrate WhatsApp, email, Instagram, and web chat in minutes.", gradient: "from-blue-500 to-blue-600" },
+              { num: "02", icon: "⚡", title: "Train on Your Catalog", desc: "Upload product info, shipping policies, and FAQs for AI-powered answers.", gradient: "from-emerald-500 to-emerald-600" },
+              { num: "03", icon: "↗", title: "Automate Order Handling", desc: "AI classifies, routes, and resolves orders automatically.", gradient: "from-purple-500 to-purple-600" },
+              { num: "04", icon: "✓", title: "Scale with Confidence", desc: "Monitor analytics, escalate edge cases, and continuously improve.", gradient: "from-amber-500 to-amber-600" },
             ].map((step, i) => (
               <RevealSection key={step.num} delay={i * 100}>
                 <div className="p-8 rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-xl transition-all duration-300 group h-full bg-white relative overflow-hidden">
@@ -478,11 +526,11 @@ export default function HomePage() {
       <section className="py-24 border-t border-gray-100/80">
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <RevealSection>
-            <p className="text-sm font-bold text-blue-600 uppercase tracking-[0.2em] mb-4">{t("security.label")}</p>
+            <p className="text-sm font-bold text-blue-600 uppercase tracking-[0.2em] mb-4">Security & Compliance</p>
             <h2 className="text-[34px] sm:text-[46px] font-extrabold tracking-tight mb-4 leading-[1.05]">
-              {t("security.title")}
+              Enterprise-Grade Security
             </h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto mb-12">{t("security.desc")}</p>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto mb-12">Your shoppers' data is protected with the highest standards of security and compliance.</p>
             <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-7 gap-0 border border-gray-100 rounded-2xl overflow-hidden max-w-4xl mx-auto">
               {["SOC 2", "ISO 27001", "GDPR", "NDPC", "PCI DSS", "HIPAA", "CSA"].map((c) => (
                 <div key={c} className="flex items-center justify-center h-20 border-r border-b border-gray-100 last:border-r-0 hover:bg-gray-50/50 transition-colors">
@@ -498,11 +546,11 @@ export default function HomePage() {
       <section className="py-24 border-t border-gray-100/80 section-mesh">
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <RevealSection>
-            <p className="text-sm font-bold text-blue-600 uppercase tracking-[0.2em] mb-4">{t("integrations.label")}</p>
+            <p className="text-sm font-bold text-blue-600 uppercase tracking-[0.2em] mb-4">Integrations</p>
             <h2 className="text-[34px] sm:text-[46px] font-extrabold tracking-tight mb-4 leading-[1.05]">
-              {t("integrations.title")}
+              Connect Your E-Commerce Stack
             </h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto mb-12">{t("integrations.desc")}</p>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto mb-12">ShopCRM integrates with your existing e-commerce tools, payment gateways, and shipping providers.</p>
             <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-0 border border-gray-100 rounded-2xl overflow-hidden bg-white max-w-4xl mx-auto mb-8">
               {["WhatsApp", "Zapier", "Instagram", "Twilio", "Slack", "Gmail", "Mailgun", "Amazon SNS", "Firebase", "Stripe", "HubSpot", "Telegram"].map((name) => (
                 <div key={name} className="flex items-center justify-center h-20 border-r border-b border-gray-100 last:border-r-0 hover:bg-gray-50/50 transition-colors">
@@ -510,9 +558,9 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
-            <p className="text-gray-400 text-sm mb-6">{t("integrations.noTool")}</p>
+            <p className="text-gray-400 text-sm mb-6">Don't see your tool? We have a REST API for everything else.</p>
             <Link href="/support" className="inline-flex items-center gap-2 px-8 py-3.5 border-2 border-gray-200 rounded-xl text-[15px] font-semibold text-gray-700 hover:border-gray-300 hover:bg-white transition-all">
-              {t("integrations.apiCta")} <span>→</span>
+              View API Docs <span>→</span>
             </Link>
           </RevealSection>
         </div>
@@ -524,17 +572,17 @@ export default function HomePage() {
         <div className="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px]" />
         <div className="max-w-[800px] mx-auto px-6 text-center relative">
           <RevealSection>
-            <p className="text-sm font-bold text-blue-300 uppercase tracking-[0.2em] mb-4">{t("cta.label")}</p>
+            <p className="text-sm font-bold text-blue-300 uppercase tracking-[0.2em] mb-4">Get Started</p>
             <h2 className="text-[34px] sm:text-[46px] font-extrabold tracking-tight text-white mb-6 leading-[1.1]">
-              {t("cta.title")}
+              Ready to Automate Your Shopping Support?
             </h2>
-            <p className="text-blue-100/70 text-lg mb-10">{t("cta.desc")}</p>
+            <p className="text-blue-100/70 text-lg mb-10">Join leading e-commerce brands using ShopCRM to resolve orders faster, reduce churn, and delight buyers.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button onClick={() => setDemoOpen(true)} className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-white text-gray-900 rounded-2xl text-[15px] font-semibold hover:bg-gray-50 transition-all shadow-xl hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98]">
-                {t("cta.book")}
+                Book a Demo
               </button>
               <Link href="/support" className="inline-flex items-center justify-center gap-2 px-10 py-4 border-2 border-blue-300/30 text-blue-200 rounded-2xl text-[15px] font-semibold hover:bg-white/5 transition-all hover:scale-[1.02] active:scale-[0.98]">
-                {t("cta.start")}
+                Start Free Trial →
               </Link>
             </div>
           </RevealSection>

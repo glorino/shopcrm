@@ -1,9 +1,20 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="200" height="200" rx="40" fill="#ea580c"/>
-  <path d="M60 65H155L145 130H70L60 65Z" fill="white" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-  <circle cx="80" cy="145" r="10" fill="white"/>
-  <circle cx="130" cy="145" r="10" fill="white"/>
-  <path d="M70 80H145" stroke="#ea580c" stroke-width="3"/>
-  <path d="M75 95H110" stroke="#ea580c" stroke-width="2" opacity="0.5"/>
-  <text x="100" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">ShopCRM</text>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316"/>
+      <stop offset="100%" style="stop-color:#ea580c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="44" fill="url(#bg)"/>
+  <g transform="translate(100,85)">
+    <path d="M-35,-20 L-28,-20 L-12,15 L25,15 L35,-10 L-5,-10" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M-40,-20 L-45,-30" stroke="white" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="-5" cy="25" r="6" fill="white"/>
+    <circle cx="22" cy="25" r="6" fill="white"/>
+    <circle cx="-5" cy="25" r="2.5" fill="#f97316"/>
+    <circle cx="22" cy="25" r="2.5" fill="#f97316"/>
+    <rect x="-2" y="0" width="14" height="12" rx="2" fill="white" opacity="0.9"/>
+    <rect x="-18" y="2" width="10" height="10" rx="2" fill="white" opacity="0.7"/>
+  </g>
+  <text x="100" y="178" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="white" letter-spacing="2">SHOPCRM</text>
 </svg>

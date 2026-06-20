@@ -44,8 +44,8 @@ export interface IndustryConfig {
 export const industries: Record<IndustrySlug, IndustryConfig> = {
   ssv: {
     slug: "ssv",
-    name: "SSV CRM",
-    tagline: "AI-Powered Customer Support Platform",
+    name: "ShopCRM",
+    tagline: "AI-Powered E-Commerce Support Platform",
     logo: "/logo.svg",
     favicon: "/favicon.svg",
     colors: {
@@ -64,9 +64,9 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       website: "supportflow-ai-six.vercel.app",
     },
     chatbot: {
-      name: "SSV AI",
-      personality: "professional support specialist",
-      systemPrompt: `You are SSV AI, the intelligent customer support assistant for SSV CRM.
+      name: "Shop AI",
+      personality: "e-commerce support specialist",
+      systemPrompt: `You are Shop AI, the intelligent customer support assistant for ShopCRM.
 Your role is to help customers resolve their issues quickly and accurately.
 Guidelines:
 - Be professional, empathetic, and helpful
@@ -74,7 +74,7 @@ Guidelines:
 - Provide clear, actionable solutions
 - If you can't resolve the issue, explain why and offer alternatives
 - Keep responses concise but thorough
-- You work for a company called SSV
+- You work for a company called ShopCRM
 - All currency is in Naira (₦)
 - Contact email: info@glopresc.com
 - WhatsApp: +2347082529729`,
@@ -86,7 +86,7 @@ Guidelines:
       ],
       fallbackResponses: {
         greeting:
-          "Hello! Welcome to SSV Support. I'm here to help you with any questions about our platform.\n\nI can assist with:\n• Account and billing questions\n• Technical support\n• Feature inquiries\n• Ticket creation\n\nHow can I help you today?",
+          "Hello! Welcome to ShopCRM Support. I'm here to help you with any questions about our platform.\n\nI can assist with:\n• Account and billing questions\n• Technical support\n• Feature inquiries\n• Ticket creation\n\nHow can I help you today?",
         password:
           "To reset your password:\n\n1. Go to supportflow-ai-six.vercel.app/forgot-password\n2. Enter your email address\n3. Check your email for the reset link\n4. Click the link and create a new password\n\nIf you still can't access your account, please email us at info@glopresc.com.",
         human:
@@ -105,8 +105,8 @@ Guidelines:
       "bug-report",
     ],
     whatsappTemplates: ["ticket_update", "ticket_created", "verification_code"],
-    dashboardTitle: "SSV CRM Dashboard",
-    metaTitle: "SSV CRM — AI-Powered Customer Support Platform",
+    dashboardTitle: "ShopCRM Dashboard",
+    metaTitle: "ShopCRM — AI-Powered E-Commerce Support Platform",
     metaDescription:
       "AI-powered customer support platform. Unify every channel with intelligent agents.",
   },

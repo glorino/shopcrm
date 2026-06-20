@@ -7,10 +7,10 @@ import { LangToggle } from "@/components/lang-toggle";
 import { useLang } from "@/lib/i18n/context";
 
 const demoLogins = [
-  { email: "admin@shopcrm.com", password: "admin123", role: "Super Admin", name: "Alex Johnson", avatar: "AJ", gradient: "from-violet-500 to-indigo-600" },
-  { email: "sarah@shopcrm.com", password: "demo123", role: "Manager", name: "Sarah Kim", avatar: "SK", gradient: "from-emerald-500 to-teal-600" },
-  { email: "tom@shopcrm.com", password: "demo123", role: "Agent", name: "Tom Chen", avatar: "TC", gradient: "from-blue-500 to-cyan-600" },
-  { email: "viewer@shopcrm.com", password: "demo123", role: "Viewer", name: "Jordan Lee", avatar: "JL", gradient: "from-gray-500 to-slate-600" },
+  { email: "tunde@shopcrm.com", password: "admin123", role: "Super Admin", name: "Tunde Agbaje", avatar: "TA", gradient: "from-violet-500 to-indigo-600" },
+  { email: "folake@shopcrm.com", password: "demo123", role: "Manager", name: "Folake Balogun", avatar: "FB", gradient: "from-emerald-500 to-teal-600" },
+  { email: "emeka@shopcrm.com", password: "demo123", role: "Agent", name: "Emeka Uche", avatar: "EU", gradient: "from-blue-500 to-cyan-600" },
+  { email: "dayo@shopcrm.com", password: "demo123", role: "Viewer", name: "Dayo Ogundimu", avatar: "DO", gradient: "from-gray-500 to-slate-600" },
 ];
 
 export default function LoginPage() {

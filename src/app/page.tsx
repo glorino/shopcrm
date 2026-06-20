@@ -582,7 +582,7 @@ export default function HomePage() {
                 Book a Demo
               </button>
               <Link href="/support" className="inline-flex items-center justify-center gap-2 px-10 py-4 border-2 border-blue-300/30 text-blue-200 rounded-2xl text-[15px] font-semibold hover:bg-white/5 transition-all hover:scale-[1.02] active:scale-[0.98]">
-                Start Free Trial →
+                Contact Sales →
               </Link>
             </div>
           </RevealSection>

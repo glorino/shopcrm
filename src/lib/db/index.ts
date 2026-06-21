@@ -1,6 +1,10 @@
 import { neon } from "@neondatabase/serverless";
 
-const sql = neon(process.env.DATABASE_URL || "postgresql://neondb_owner:npg_DnZLKbTy9V6C@ep-soft-dust-apw42hzj-pooler.c-7.us-east-1.aws.neon.tech/neondb?sslmode=require");
+if (!process.env.DATABASE_URL) {
+  throw new Error("DATABASE_URL environment variable is required");
+}
+
+const sql = neon(process.env.DATABASE_URL);
 
 export { sql };
 
@@ -113,5 +117,5 @@ export async function initDB() {
 
 export async function generateTicketNumber(): Promise<string> {
   const result = await sql`SELECT nextval('ticket_seq') as num`;
-  return `SHOP-${result[0].num}`;
+  return `DNT-${result[0].num}`;
 }

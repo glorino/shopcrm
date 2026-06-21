@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/lib/i18n/context";
+import { LangSync } from "@/lib/i18n/lang-sync";
 import { IndustryProvider } from "@/lib/industry/context";
 import { getIndustryFromEnv } from "@/lib/industry/config";
 
@@ -14,7 +15,7 @@ const dmSans = DM_Sans({
 const industry = getIndustryFromEnv();
 const industryConfig = (() => {
   const { industries } = require("@/lib/industry/config");
-  return industries[industry] || industries.ssv;
+  return industries[industry] || industries.healthcare;
 })();
 
 export const metadata: Metadata = {
@@ -34,7 +35,10 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${dmSans.variable} font-sans`}>
         <IndustryProvider slug={industry}>
-          <LanguageProvider>{children}</LanguageProvider>
+          <LanguageProvider>
+            <LangSync />
+            {children}
+          </LanguageProvider>
         </IndustryProvider>
       </body>
     </html>

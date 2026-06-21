@@ -6,15 +6,16 @@ import { ChatWidget } from "@/components/chat-widget";
 import { LangToggle } from "@/components/lang-toggle";
 import { useLang } from "@/lib/i18n/context";
 
-const demoLogins = [
-  { email: "tunde@shopcrm.com", password: "admin123", role: "Super Admin", name: "Tunde Agbaje", avatar: "TA", gradient: "from-violet-500 to-indigo-600" },
-  { email: "folake@shopcrm.com", password: "demo123", role: "Manager", name: "Folake Balogun", avatar: "FB", gradient: "from-emerald-500 to-teal-600" },
-  { email: "emeka@shopcrm.com", password: "demo123", role: "Agent", name: "Emeka Uche", avatar: "EU", gradient: "from-blue-500 to-cyan-600" },
-  { email: "dayo@shopcrm.com", password: "demo123", role: "Viewer", name: "Dayo Ogundimu", avatar: "DO", gradient: "from-gray-500 to-slate-600" },
-];
-
 export default function LoginPage() {
   const { t } = useLang();
+
+  const demoLogins = [
+    { email: "emeka@dentalcrm.com", password: "admin123", role: t("roles.superAdmin"), name: "Dr. Chukwuemeka Obi", avatar: "CO", gradient: "from-violet-500 to-indigo-600" },
+    { email: "folake@dentalcrm.com", password: "demo123", role: t("roles.manager"), name: "Folake Ogundipe", avatar: "FO", gradient: "from-emerald-500 to-teal-600" },
+    { email: "ngozi@dentalcrm.com", password: "demo123", role: t("roles.agent"), name: "Ngozi Okolo", avatar: "NO", gradient: "from-blue-500 to-cyan-600" },
+    { email: "dayo@dentalcrm.com", password: "demo123", role: t("roles.viewer"), name: "Dayo Fadugba", avatar: "DF", gradient: "from-gray-500 to-slate-600" },
+  ];
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -75,9 +76,9 @@ export default function LoginPage() {
         <div className="relative z-10 flex flex-col justify-center px-12 xl:px-16 w-full">
           {/* Logo */}
           <div className="flex items-center gap-3 mb-16 animate-fade-in">
-            <img src="/logo.svg" alt="ShopCRM" className="h-14 w-14" />
+            <img src="/industries/healthcare/logo.svg" alt="DentalCRM" className="h-14 w-14" />
             <div>
-              <span className="text-3xl font-bold text-white tracking-tight">Shop</span>
+              <span className="text-3xl font-bold text-white tracking-tight">Dental</span>
               <span className="text-3xl font-bold text-blue-300 ml-1.5">CRM</span>
             </div>
           </div>
@@ -118,9 +119,9 @@ export default function LoginPage() {
               &quot;{t("loginPage.testimonial")}&quot;
             </div>
             <div className="flex items-center gap-3">
-              <div className="h-11 w-11 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-sm font-bold border border-white/10">SC</div>
+              <div className="h-11 w-11 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-sm font-bold border border-white/10">AO</div>
               <div>
-                <div className="text-sm font-semibold text-white">Sarah Chen</div>
+                <div className="text-sm font-semibold text-white">Adebayo Okonkwo</div>
                 <div className="text-xs text-blue-200/40">{t("loginPage.testimonialRole")}</div>
               </div>
             </div>
@@ -138,9 +139,9 @@ export default function LoginPage() {
           {/* Mobile Logo */}
           <div className="lg:hidden text-center mb-10 animate-slide-up">
             <Link href="/dashboard" className="inline-flex items-center gap-3">
-              <img src="/logo.svg" alt="ShopCRM" className="h-14 w-14" />
+              <img src="/industries/healthcare/logo.svg" alt="DentalCRM" className="h-14 w-14" />
               <div>
-                <span className="text-3xl font-bold text-gray-900 tracking-tight">Shop</span>
+                <span className="text-3xl font-bold text-gray-900 tracking-tight">Dental</span>
                 <span className="text-3xl font-bold text-blue-600 ml-1.5">CRM</span>
               </div>
             </Link>
@@ -197,7 +198,7 @@ export default function LoginPage() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@shopcrm.com"
+                  placeholder="you@dentalcrm.com"
                   required
                   className="input-premium"
                 />

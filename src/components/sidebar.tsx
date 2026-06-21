@@ -86,9 +86,9 @@ export function Sidebar() {
       {/* Logo */}
       <div className="flex h-[68px] items-center gap-3 border-b border-gray-100/80 px-5">
         <Link href="/dashboard" className="flex items-center gap-2.5 group">
-          <img src="/logo.svg" alt="ShopCRM" className="h-9 w-9 group-hover:scale-105 transition-transform duration-300" />
+          <img src="/industries/healthcare/logo.svg" alt="DentalCRM" className="h-9 w-9 group-hover:scale-105 transition-transform duration-300" />
           <div>
-            <span className="text-lg font-bold text-gray-900 tracking-tight">Shop</span>
+            <span className="text-lg font-bold text-gray-900 tracking-tight">Dental</span>
             <span className="text-lg font-bold text-blue-600 ml-1">CRM</span>
           </div>
         </Link>
@@ -118,7 +118,7 @@ export function Sidebar() {
       {/* Main Site Link */}
       <div className="px-3 pb-3">
         <a
-          href="https://shopcrm-one.vercel.app"
+          href="https://dentalcrm-beta.vercel.app"
           target="_blank"
           rel="noopener noreferrer"
           className="group flex items-center gap-3 rounded-2xl px-3.5 py-2.5 text-sm font-medium text-gray-500 hover:bg-gray-50/80 hover:text-gray-900 hover:shadow-sm transition-all duration-300 border border-gray-200/60"
@@ -128,7 +128,7 @@ export function Sidebar() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
           </div>
-          <span className="flex-1">Main Site</span>
+          <span className="flex-1">{t("sidebar.mainSite")}</span>
           <svg className="w-4 h-4 text-gray-400 group-hover:text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>

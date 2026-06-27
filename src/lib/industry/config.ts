@@ -10,6 +10,8 @@ export interface IndustryConfig {
   slug: IndustrySlug;
   name: string;
   tagline: string;
+  description: string;
+  ticketPrefix: string;
   logo: string; // path to logo SVG
   favicon: string;
   colors: {
@@ -46,6 +48,8 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     slug: "ssv",
     name: "SSV CRM",
     tagline: "AI-Powered Customer Support Platform",
+    description: "customer support platform",
+    ticketPrefix: "SSV",
     logo: "/logo.svg",
     favicon: "/favicon.svg",
     colors: {
@@ -115,6 +119,8 @@ Guidelines:
     slug: "realestate",
     name: "PropertyCRM",
     tagline: "Smart Property Support Platform",
+    description: "real estate support",
+    ticketPrefix: "PCR",
     logo: "/industries/realestate/logo.svg",
     favicon: "/industries/realestate/favicon.svg",
     colors: {
@@ -191,6 +197,8 @@ Guidelines:
     slug: "fintech",
     name: "FinSupport",
     tagline: "Intelligent Financial Support Platform",
+    description: "fintech support",
+    ticketPrefix: "FIN",
     logo: "/industries/fintech/logo.svg",
     favicon: "/industries/fintech/favicon.svg",
     colors: {
@@ -267,6 +275,8 @@ Guidelines:
     slug: "insurance",
     name: "InsureCRM",
     tagline: "Smart Insurance Support Platform",
+    description: "insurance support",
+    ticketPrefix: "INS",
     logo: "/industries/insurance/logo.svg",
     favicon: "/industries/insurance/favicon.svg",
     colors: {
@@ -343,6 +353,8 @@ Guidelines:
     slug: "healthcare",
     name: "DentalCRM",
     tagline: "Smart Dental Hospital Support Platform",
+    description: "dental hospital support",
+    ticketPrefix: "DEN",
     logo: "/industries/healthcare/logo.svg",
     favicon: "/industries/healthcare/favicon.svg",
     colors: {
@@ -420,6 +432,8 @@ Guidelines:
     slug: "ecommerce",
     name: "ShopCRM",
     tagline: "Smart E-Commerce Support Platform",
+    description: "e-commerce support",
+    ticketPrefix: "SHP",
     logo: "/industries/ecommerce/logo.svg",
     favicon: "/industries/ecommerce/favicon.svg",
     colors: {
